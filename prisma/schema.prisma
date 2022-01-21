@@ -1,0 +1,66 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Car {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  make String 
+  model String
+  type VehicleType
+  year Int
+  price Int
+  issued Issued?
+}
+
+model Client {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  firstName String
+  lastName String
+  dob DateTime 
+  issued Issued?
+  contact Contact @default(EMAIL)
+  phone String?
+  email String
+}
+
+model Issued {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  car Car @relation(fields: [carId], references: [id])
+  carId Int
+  client Client @relation(fields: [clientId], references: [id])
+  clientId Int
+  returned Boolean @default(false)
+  returnedId Returned?
+}
+
+model Returned {
+  id Int @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  issued Issued @relation(fields: [issuedId], references: [id])
+  issuedId Int
+}
+
+enum Contact {
+  PHONE
+  EMAIL
+  BOTH
+}
+
+enum VehicleType {
+  COMMERCIAL
+  PICKUP
+  SUV
+  MINIVAN
+  SPORTSCAR
+  CAR
+}
