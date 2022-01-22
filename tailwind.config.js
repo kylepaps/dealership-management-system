@@ -4,7 +4,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        navbar: 'calc(100vw - 224px)'
+      }
+    },
   },
   plugins: [],
+  darkMode: 'class',
 }

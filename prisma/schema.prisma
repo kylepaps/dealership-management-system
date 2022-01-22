@@ -24,7 +24,7 @@ model Client {
   createdAt DateTime @default(now())
   firstName String
   lastName String
-  dob DateTime 
+  dob DateTime
   issued Issued?
   contact Contact @default(EMAIL)
   phone String?
