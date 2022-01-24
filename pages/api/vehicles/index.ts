@@ -5,6 +5,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
         const cars = await prisma.car.findMany()
         res.status(201)
+        // console.log({cars})
         res.json({ cars })
     } catch (error) {
         res.status(500)

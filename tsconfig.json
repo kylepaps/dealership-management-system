@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/Container.jsx", "components/Dashboard.jsx", "components/Dropdown.jsx", "components/Navbar.jsx", "pages/index.jsx", "pages/_app.jsx", "pages/vehicles/index.jsx"  ],
   "exclude": [
     "node_modules"
   ]

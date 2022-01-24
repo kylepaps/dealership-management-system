@@ -36,7 +36,7 @@ const Container = (props) => {
                     <div className='flex flex-col'>
                         <Navbar toggle={toggle}/>
                         <Dropdown isOpen={isOpen} toggle={toggle}/>
-                        <main className='flex flex-row max-w-6xl mx-auto px-8'>
+                        <main className='flex flex-row p-8'>
                             {children}
                         </main>
                     </div>
