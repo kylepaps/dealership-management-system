@@ -8,8 +8,16 @@ import { useRouter } from 'next/router';
 const ClientList = () => {
     const { mutate } = useSWRConfig()
     const { register, formState: { errors }, handleSubmit } = useForm();
-    // const [clientList, setClientList] = useState([])
-    const { data: clientData } = useSWR('/api/clients', fetcher)
+    const [sortType, setSortType] = useState()
+    const { data: clientData } = useSWR(`/api/clients/filter/${sortType}`, fetcher)
+    useEffect(() => {
+        const sortArray = type => {
+          setSortType(type)
+          mutate(`/api/clients/filter/${sortType}`)
+        }
+        sortArray(sortType)
+    }, [sortType])
+    
     if (!clientData) {
         return <h1>loading...</h1>
     }
@@ -36,7 +44,7 @@ const ClientList = () => {
           },
           method: 'POST'
         })
-        mutate('/api/clients')
+        mutate(`/api/clients/filter/${sortType}`)
     };
 
     return (
@@ -74,9 +82,18 @@ const ClientList = () => {
                     <button className='w-fit h-fit p-2 rounded-md bg-yellow-50' type='submit'>Create Client</button>
                 </div>
             </form>
-
-            {getClientJSON.map((client) => (
-                <ClientItem key={client.id} id={client.id} first={client.firstName} last={client.lastName} dob={client.dob} contact={client.contact} phone={client.phone} email={client.email}/>
+            <div className='flex flex-col py-4'>
+                <label>filter by</label>
+                <select className='w-44' onChange={(e) => setSortType(e.target.value)}>
+                    <option value='firstname'>First Name</option>
+                    <option value='lastname'>Last Name</option>
+                    <option value='contact method'>Contact Method</option>
+                    <option value='phone'>Phone</option>
+                    <option value='email'>Email</option>
+                </select>
+            </div>
+            {getClientJSON.map((client, index) => (
+                <ClientItem key={client.id} index={index} id={client.id} first={client.firstName} last={client.lastName} dob={client.dob} contact={client.contact} phone={client.phone} email={client.email} sort={sortType}/>
             ))}
         </div>
     )
