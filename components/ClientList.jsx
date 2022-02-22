@@ -3,7 +3,6 @@ import useSWR, { useSWRConfig } from 'swr';
 import fetcher from '../lib/fetcher'
 import ClientItem from './ClientItem'
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/router';
 
 const ClientList = () => {
     const { mutate } = useSWRConfig()

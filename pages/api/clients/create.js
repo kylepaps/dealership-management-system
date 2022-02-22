@@ -18,6 +18,6 @@ export default async function handler(req, res) {
         res.json({ clients })
     } catch (error) {
         res.status(500)
-        res.json({error: "sorry unable to fetch clients"})
+        res.json({error: "sorry unable to create client"})
     }
 }

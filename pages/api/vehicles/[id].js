@@ -2,19 +2,19 @@ import prisma from "../../../lib/prisma"
 
 export default async function handler(req, res) {
     const { id } = req.query
-    const clientId = parseInt(id)
+    const carId = parseInt(id)
     if (req.method === 'DELETE') {
         try {
-            const clients = await prisma.client.delete({
+            const cars = await prisma.car.delete({
                 where: {
-                    id: clientId,
+                    id: carId,
                 }
             })
             res.status(201)
-            res.json({ clients })
+            res.json({ cars })
         } catch (error) {
             res.status(500)
-            res.json({error: "sorry unable to delete client"})
+            res.json({error: "sorry unable to delete vehicle"})
         }
     }
 }

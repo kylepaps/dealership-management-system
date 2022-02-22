@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
 
@@ -22,8 +21,8 @@ const Navbar = ({toggle}) => {
     
     return (
         <div>
-            <nav className='flex flex-row items-center justify-between w-navbar h-16 bg-slate-400 px-8'>
-                <h1>{route}</h1>
+            <nav className='flex flex-row items-center justify-between w-navbar h-16 bg-transparent px-8'>
+                <h1 className='text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gray-800 via-gray-900 to-rose-600'>{route}</h1>
                 <div className='flex space-x-4'>
                     <button onClick={() => setTheme(theme==='light'?'dark':'light')}>
                         <svg className='w-6 h-6 hover:text-blue-600' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

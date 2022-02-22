@@ -25,7 +25,7 @@ const Container = (props) => {
 
 
     return (
-        <div className='bg-gray-50 dark:bg-gray-900 h-screen' >
+        <div className='bg-gradient-to-br from-rose-50 via-orange-50 to-fuchsia-50 dark:bg-neutral-900 h-screen' >
             <Head>
                 <title>Kyle's Auto</title>
                 <link rel='icon' href='/favicon.ico'/>
@@ -36,7 +36,7 @@ const Container = (props) => {
                     <div className='flex flex-col'>
                         <Navbar toggle={toggle}/>
                         <Dropdown isOpen={isOpen} toggle={toggle}/>
-                        <main className='flex flex-row p-8'>
+                        <main className='flex flex-row bg-gradient-to-br from-rose-50 via-orange-50 to-fuchsia-50'>
                             {children}
                         </main>
                     </div>

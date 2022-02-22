@@ -8,7 +8,6 @@ const ClientItem = ({id, index, first, last, dob, contact, phone, email, sort}) 
         const res = await fetch(`/api/clients/${id}`, {
           method: 'DELETE'
         })
-        console.log(res)
         mutate(`/api/clients/filter/${sort}`)
     }
     

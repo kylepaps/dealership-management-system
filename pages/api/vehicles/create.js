@@ -1,7 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../lib/prisma"
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req, res) {
     try {
         const { car: carData } = req.body
         const year = parseInt(carData.year)
