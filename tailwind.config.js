@@ -12,6 +12,9 @@ module.exports = {
         navbar: 'calc(100vw - 224px)'
       }
     },
+    fontFamily: {
+        Poppins: ['Poppins', 'sans-serif'],
+      }
   },
   plugins: [],
   darkMode: 'class',
