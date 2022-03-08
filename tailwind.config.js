@@ -5,11 +5,15 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'vehicle-form': '1300px'
+      'vehicle-form': '1300px',
+      'client-form': '988px'
     },
     extend: {
       width: {
         navbar: 'calc(100vw - 224px)'
+      },
+      height: {
+        body: 'calc(100vh - 96px)'
       }
     },
     fontFamily: {

@@ -1,11 +1,10 @@
 import Container from '../components/Container'
+import Dashboard from '../components/Dashboard'
 
 export default function Home() {
   return (
     <Container>
-      <div>
-        <h1>home</h1>
-      </div>
+      <Dashboard/>
     </Container>
   )
 }

@@ -19,7 +19,7 @@ const VehicleItem = ({id, index, make, model, type, year, price, sort}) => {
             <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{model}</h1>
             <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{type}</h1>
             <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{year}</h1>
-            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{price}</h1>
+            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>${price}</h1>
             <div className="w-full px-4 flex justify-end">
                 <button onClick={deleteVehicle}>
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

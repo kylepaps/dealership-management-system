@@ -4,6 +4,7 @@ import fetcher from '../lib/fetcher'
 import ClientItem from './ClientItem'
 import { useForm } from 'react-hook-form';
 
+
 const ClientList = () => {
     const { mutate } = useSWRConfig()
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -47,53 +48,78 @@ const ClientList = () => {
     };
 
     return (
-        <div>
-            <form className=' bg-amber-300 rounded-xl p-2 shadow-sm w-full' onSubmit={handleSubmit(onSubmit)}>
-                <div className='flex flex-row space-x-4 items-center'>
-                    <div className='flex flex-col'>
-                    <label className='text-sm'>First Name</label>
-                    <input className={errors.firstName?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700' : 'rounded-md focus:outline-none p-1'} placeholder={errors.firstName?.type === 'required' ? 'First Name is required' : null} type='text' {...register("firstName", { required: true })}></input>
+        <div className='flex flex-col w-full justify-between p-6'>
+            <form className=' bg-white bg-opacity-90 rounded-xl p-2 shadow-md w-full' onSubmit={handleSubmit(onSubmit)}>
+                <div className='flex flex-col'>
+                    <h1 className='p-4 font-Poppins font-semibold text-xl text-neutral-700'>Create Client</h1>
+                        <div className='flex client-form:flex-row flex-col p-4 client-form:space-x-4 justify-between'> 
+                            <div className='flex flex-col w-full'>
+                                <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>First Name</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
+                                <input className={errors.firstName?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light'} placeholder={errors.firstName?.type === 'required' ? 'First Name is required' : null} type='text' {...register("firstName", { required: true })}></input>
+                            </div>
+                            <div className='flex flex-col w-full'>
+                                <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Last Name</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
+                                <input className={errors.lastName?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light'} placeholder={errors.lastName?.type === 'required' ? 'Last Name is required' : null} type='text' {...register("lastName", { required: true })}></input>
+                            </div>
+                            <div className='flex flex-col w-full'>
+                                <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Date of Birth (YYYY-MM-DD)</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
+                                <input className={errors.dob?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light'} placeholder={errors.dob?.type === 'required' ? 'Date of Birth is required' : null} type='text' {...register("dob", { required: true })}></input>
+                            </div>
+                        </div> 
+                        <div className='flex client-form:flex-row flex-col p-4 client-form:space-x-4 justify-between'> 
+                            <div className='flex flex-col w-full'>
+                                <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Phone</label></div>                                                                                                        
+                                <input className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light' {...register("phone")}></input>
+                            </div>
+                            <div className='flex flex-col w-full'>
+                                <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Email</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
+                                <input className={errors.email?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light'} placeholder={errors.email?.type === 'required' ? 'Email is required' : null} type='email' {...register("email", { required: true, pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "Invalid email address" } })}></input>
+                            </div>
+                            <div className='flex flex-col w-full'>
+                            <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Preferred Contact Method</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
+                                <select className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 selection:outline-indigo-500 font-Poppins font-light' {...register("contact")}>
+                                    <option value="EMAIL" className='font-Poppins font-light'>Email</option>
+                                    <option value="PHONE" className='font-Poppins font-light'>Phone</option>
+                                    <option value="BOTH" className='font-Poppins font-light'>Both</option>
+                                </select>
+                            </div>
+                        </div> 
+                    <div className='flex flex-row w-full justify-end p-4'>
+                        <button className='w-fit h-fit p-2 rounded-md bg-indigo-500 text-neutral-50 hover:bg-indigo-400 font-Poppins font-light' type='submit'>Create Client</button>
                     </div>
-                    <div className='flex flex-col'>
-                    <label className='text-sm'>Last Name</label>
-                    <input className={errors.lastName?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700' : 'rounded-md focus:outline-none p-1'} placeholder={errors.lastName?.type === 'required' ? 'Last Name is required' : null} type='text' {...register("lastName", { required: true })}></input>
-                    </div>
-                    <div className='flex flex-col'>
-                    <label className='text-sm'>Date of Birth</label>
-                    <input className={errors.dob?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700' : 'rounded-md focus:outline-none p-1'} placeholder={errors.dob?.type === 'required' ? 'Date of Birth is required' : null} type='text' {...register("dob", { required: true })}></input>
-                    </div>
-                    <div className='flex flex-col'>
-                    <label className='text-sm'>Phone</label>
-                    <input className='rounded-md focus:outline-none p-1' type='text' {...register("phone")}></input>
-                    </div>
-                    <div className='flex flex-col'>
-                    <label className='text-sm'>Email</label>
-                    <input className={errors.email?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700' : 'rounded-md focus:outline-none p-1'} placeholder={errors.email?.type === 'required' ? 'Email is required' : null} type='email' {...register("email", { required: true, pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "Invalid email address" } })}></input>
-                    </div>
-                    <div className='flex flex-col'>
-                    <label className='text-sm'>Preferred Contact Method</label>
-                    <select className='w-48 p-1 rounded-md' {...register("contact")}>
-                        <option value="EMAIL">Email</option>
-                        <option value="PHONE">Phone</option>
-                        <option value="BOTH">Both</option>
-                    </select>
-                    </div>
-                    <button className='w-fit h-fit p-2 rounded-md bg-yellow-50' type='submit'>Create Client</button>
                 </div>
             </form>
-            <div className='flex flex-col py-4'>
-                <label>filter by</label>
-                <select className='w-44' onChange={(e) => setSortType(e.target.value)}>
-                    <option value='firstname'>First Name</option>
-                    <option value='lastname'>Last Name</option>
-                    <option value='contact method'>Contact Method</option>
-                    <option value='phone'>Phone</option>
-                    <option value='email'>Email</option>
-                </select>
+            <div className='flex flex-col p-6 bg-white bg-opacity-90 my-6 rounded-xl shadow-md'>
+                <div className='flex flex-row justify-between'>
+                    <h1 className='font-Poppins font-semibold text-xl text-neutral-700'>Clients</h1>
+                    <div className='flex flex-col'>    
+                        <label className='font-Poppins font-medium text-base text-neutral-600 pl-1'>Filter By</label>
+                        <select className='w-44 font-Poppins font-light text-sm rounded-md border-2 focus:outline-indigo-500 active:outline-indigo-500' onChange={(e) => setSortType(e.target.value)}>
+                            <option value='firstname' className='font-Poppins font-light text-sm'>First Name</option>
+                            <option value='lastname' className='font-Poppins font-light text-sm'>Last Name</option>
+                            <option value='contact method' className='font-Poppins font-light text-sm'>Contact Method</option>
+                            <option value='phone' className='font-Poppins font-light text-sm'>Phone</option>
+                            <option value='email' className='font-Poppins font-light text-sm'>Email</option>
+                        </select>
+                    </div>
+                </div>
+           
+                <div className='flex flex-row border-b-2 border-indigo-500 border-opacity-50 justify-between items-center pt-6'>
+                    <div className='w-full px-4'></div>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>First Name</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Last Name</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Date of Birth</h1>
+                    {/* <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Preferred Contact</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Email</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Phone</h1> */}
+                    <div className='w-full px-4'></div>
+                </div>
+                <div className='pt-3'>
+                    {getClientJSON.map((client, index) => (
+                        <ClientItem key={client.id} index={index} id={client.id} first={client.firstName} last={client.lastName} dob={client.dob} contact={client.contact} phone={client.phone} email={client.email} sort={sortType}/>
+                    ))}
+                </div>
             </div>
-            {getClientJSON.map((client, index) => (
-                <ClientItem key={client.id} index={index} id={client.id} first={client.firstName} last={client.lastName} dob={client.dob} contact={client.contact} phone={client.phone} email={client.email} sort={sortType}/>
-            ))}
         </div>
     )
     }

@@ -3,6 +3,9 @@ import prisma from "../../../../lib/prisma"
 export default async function handler(req, res) {
     try {
         const issued = await prisma.issued.findMany({
+            orderBy: {
+                createdAt: 'desc',
+            },
             include: {
                 car: true,
                 client: true,
@@ -12,6 +15,6 @@ export default async function handler(req, res) {
         res.json({ issued })
     } catch (error) {
         res.status(500)
-        res.json({error: "sorry unable to fetch issued vehicles"})
+        res.json({error: "sorry unable to fetch recent issued"})
     }
 }
