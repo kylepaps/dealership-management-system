@@ -57,14 +57,14 @@ const IssueVehicle = () => {
     };
 
     return (
-        <div className='flex flex-col w-full justify-between p-6'>
+        <div className='flex flex-col w-full justify-between p-4'>
             <form className='bg-white bg-opacity-90 rounded-xl p-2 shadow-md w-full' onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex flex-col'>
-                    <h1 className='p-4 font-Poppins font-semibold text-xl text-neutral-700'>Issue Vehicle</h1>
-                    <div className='flex vehicle-form:flex-row flex-col p-4 vehicle-form:space-x-4 justify-between'>
+                    <h1 className='p-4 font-Poppins font-semibold text-base text-neutral-700'>Issue Vehicle</h1>
+                    <div className='flex vehicle-form:flex-row flex-col px-4 vehicle-form:space-x-4 justify-between'>
                         <div className='flex flex-col w-full'>
                             <label className='text-sm font-Poppins font-semibold text-neutral-600'>Vehicle</label>
-                            <select className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 selection:outline-indigo-500 font-Poppins font-light' {...register("vehicleId")}>
+                            <select className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 selection:outline-indigo-500 font-Poppins font-light text-sm' {...register("vehicleId")}>
                                 <option value="">--Please choose an option--</option>
                                 {unissuedVehicleJSON.map((vehicle) => (
                                     <option value={vehicle.id} className='font-Poppins font-light'>ID:{vehicle.id} {vehicle.make} {vehicle.model} {vehicle.year}</option>
@@ -73,7 +73,7 @@ const IssueVehicle = () => {
                         </div>
                         <div className='flex flex-col w-full'>
                             <label className='text-sm font-Poppins font-semibold text-neutral-600'>Client</label>
-                            <select className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 selection:outline-indigo-500 font-Poppins font-light' {...register("clientId")}>
+                            <select className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 selection:outline-indigo-500 font-Poppins font-light text-sm' {...register("clientId")}>
                                 <option value="">--Please choose an option--</option>
                                 {unissuedClientJSON.map((client) => (
                                     <option value={client.id}>ID:{client.id} {client.firstName} {client.lastName} {client.email}</option>
@@ -86,17 +86,17 @@ const IssueVehicle = () => {
                     </div>
                 </div>
             </form>
-            <div className='flex flex-col p-6 bg-white bg-opacity-90 my-6 rounded-xl shadow-md'>
+            <div className='flex flex-col h-full p-4 bg-white bg-opacity-90 my-6 rounded-xl shadow-md'>
               <div className='flex flex-row justify-between'>
-                <h1 className='font-Poppins font-semibold text-xl text-neutral-700'>Issued</h1>
+                <h1 className='font-Poppins font-semibold text-base text-neutral-700'>Issued</h1>
               </div>
-              <div className='flex flex-row border-b-2 border-indigo-500 border-opacity-50 justify-start items-center pt-6'>
+              <div className='flex flex-row border-b-2 border-indigo-500 border-opacity-50 justify-start items-center pt-4'>
                 {/* <div className='w-full px-4'></div> */}
-                <h1 className='w-full px-4 justify-start flex font-Poppins font-medium text-neutral-800'>Client</h1>
+                <h1 className='w-full px-4 justify-start flex font-Poppins font-medium text-neutral-800 text-sm'>Client</h1>
                 {/* <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Client Name</h1> */}
-                <h1 className='w-full px-4 justify-start flex font-Poppins font-medium text-neutral-800'>Vehicle</h1>
-                <h1 className='w-full px-4 justify-center flex font-Poppins font-medium text-neutral-800'>Date Issued</h1>
-                <h1 className='w-full px-4 justify-center flex font-Poppins font-medium text-neutral-800'>Price Per Day</h1>
+                <h1 className='w-full px-4 justify-start flex font-Poppins font-medium text-neutral-800 text-sm'>Vehicle</h1>
+                <h1 className='w-full px-4 justify-center flex font-Poppins font-medium text-neutral-800 text-sm'>Date Issued</h1>
+                <h1 className='w-full px-4 justify-center flex font-Poppins font-medium text-neutral-800 text-sm'>Price Per Day</h1>
                 {/* <div className='w-full px-4'></div> */}
             </div> 
                 <div className='pt-3'>

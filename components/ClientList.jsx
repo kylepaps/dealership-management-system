@@ -89,7 +89,7 @@ const ClientList = () => {
                     </div>
                 </div>
             </form>
-            <div className='flex flex-col h-full p-4 bg-white bg-opacity-90 my-6 rounded-xl shadow-md overflow-auto'>
+            <div className='flex flex-col h-full p-4 bg-white bg-opacity-90 my-4 rounded-xl shadow-md'>
                 <div className='flex flex-row justify-between'>
                     <h1 className='font-Poppins font-semibold text-base text-neutral-700'>Clients</h1>
                     <div className='flex flex-col'>    
@@ -114,7 +114,7 @@ const ClientList = () => {
                     <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Phone</h1> */}
                     <div className='w-full px-4'></div>
                 </div>
-                <div className='pt-3 overflow-y-auto'>
+                <div className='pt-3'>
                     {getClientJSON.map((client, index) => (
                         <ClientItem key={client.id} index={index} id={client.id} first={client.firstName} last={client.lastName} dob={client.dob} contact={client.contact} phone={client.phone} email={client.email} sort={sortType}/>
                     ))}

@@ -7,22 +7,22 @@ const IssueItem = ({index, clientId, vehicleId, firstName, lastName, email, mode
       <div className='flex flex-row w-full space-x-6 px-4 items-center'>
         {/* <h1 className='font-Poppins font-normal text-neutral-800 w-12 flex justify-end'>{clientId}</h1> */}
         <div className='flex flex-col w-full'>
-          <h1 className='font-Poppins font-semibold text-neutral-800'>{firstName} {lastName}</h1>
-          <h1 className='text-sm font-Poppins font-normal text-neutral-800'>{email}</h1>
+          <h1 className='text-sm font-Poppins font-semibold text-neutral-800'>{firstName} {lastName}</h1>
+          <h1 className='text-xs font-Poppins font-normal text-neutral-800'>{email}</h1>
         </div>
       </div>
       <div className='flex flex-row w-full space-x-6 px-4 items-center'>
         {/* <h1 className='font-Poppins font-normal text-neutral-800 w-12 flex justify-end'>{vehicleId}</h1> */}
         <div className='flex flex-col w-full'>
-          <h1 className='font-Poppins font-semibold text-neutral-800'>{make} {model}</h1>
-          <h1 className='text-sm font-Poppins font-normal text-neutral-800'>{year}</h1>
+          <h1 className='text-sm font-Poppins font-semibold text-neutral-800'>{make} {model}</h1>
+          <h1 className='text-xs font-Poppins font-normal text-neutral-800'>{year}</h1>
         </div>
       </div>
       <div className='w-full flex px-4 items-center justify-center'>
-        <h1 className='font-Poppins font-normal text-neutral-800'>{issueDate}</h1>
+        <h1 className='font-Poppins font-normal text-neutral-800 text-sm'>{issueDate}</h1>
       </div>
       <div className='w-full flex px-4 items-center justify-center'>
-        <h1 className='font-Poppins font-normal text-neutral-800'>${price}</h1>
+        <h1 className='font-Poppins font-normal text-neutral-800 text-sm'>${price}</h1>
       </div>
       
     </div>
