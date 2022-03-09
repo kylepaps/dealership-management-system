@@ -48,39 +48,39 @@ const ClientList = () => {
     };
 
     return (
-        <div className='flex flex-col w-full justify-between p-6'>
-            <form className=' bg-white bg-opacity-90 rounded-xl p-2 shadow-md w-full' onSubmit={handleSubmit(onSubmit)}>
+        <div className='flex flex-col w-full justify-between p-4'>
+            <form className=' bg-white bg-opacity-90 rounded-xl shadow-md w-full min-h-fit' onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex flex-col'>
-                    <h1 className='p-4 font-Poppins font-semibold text-xl text-neutral-700'>Create Client</h1>
-                        <div className='flex client-form:flex-row flex-col p-4 client-form:space-x-4 justify-between'> 
+                    <h1 className='p-4 font-Poppins font-semibold text-base text-neutral-700'>Create Client</h1>
+                        <div className='flex client-form:flex-row flex-col px-4 client-form:space-x-4 justify-between'> 
                             <div className='flex flex-col w-full'>
                                 <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>First Name</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
-                                <input className={errors.firstName?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light'} placeholder={errors.firstName?.type === 'required' ? 'First Name is required' : null} type='text' {...register("firstName", { required: true })}></input>
+                                <input className={errors.firstName?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light text-sm' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light text-sm'} placeholder={errors.firstName?.type === 'required' ? 'First Name is required' : null} type='text' {...register("firstName", { required: true })}></input>
                             </div>
                             <div className='flex flex-col w-full'>
                                 <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Last Name</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
-                                <input className={errors.lastName?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light'} placeholder={errors.lastName?.type === 'required' ? 'Last Name is required' : null} type='text' {...register("lastName", { required: true })}></input>
+                                <input className={errors.lastName?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light text-sm' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light text-sm'} placeholder={errors.lastName?.type === 'required' ? 'Last Name is required' : null} type='text' {...register("lastName", { required: true })}></input>
                             </div>
                             <div className='flex flex-col w-full'>
                                 <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Date of Birth (YYYY-MM-DD)</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
-                                <input className={errors.dob?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light'} placeholder={errors.dob?.type === 'required' ? 'Date of Birth is required' : null} type='text' {...register("dob", { required: true })}></input>
+                                <input className={errors.dob?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light text-sm' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light text-sm'} placeholder={errors.dob?.type === 'required' ? 'Date of Birth is required' : null} type='text' {...register("dob", { required: true })}></input>
                             </div>
                         </div> 
-                        <div className='flex client-form:flex-row flex-col p-4 client-form:space-x-4 justify-between'> 
+                        <div className='flex client-form:flex-row flex-col px-4 client-form:space-x-4 justify-between'> 
                             <div className='flex flex-col w-full'>
                                 <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Phone</label></div>                                                                                                        
-                                <input className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light' {...register("phone")}></input>
+                                <input className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light text-sm' {...register("phone")}></input>
                             </div>
                             <div className='flex flex-col w-full'>
                                 <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Email</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
-                                <input className={errors.email?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light'} placeholder={errors.email?.type === 'required' ? 'Email is required' : null} type='email' {...register("email", { required: true, pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "Invalid email address" } })}></input>
+                                <input className={errors.email?.type === 'required' ? 'rounded-md border-2 border-red-700 focus:outline-none p-1 placeholder:border-red-700 font-Poppins font-light text-sm' : 'rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 font-Poppins font-light text-sm'} placeholder={errors.email?.type === 'required' ? 'Email is required' : null} type='email' {...register("email", { required: true, pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "Invalid email address" } })}></input>
                             </div>
                             <div className='flex flex-col w-full'>
                             <div><label className='text-sm font-Poppins font-semibold text-neutral-600'>Preferred Contact Method</label><label className='font-Poppins font-semibold text-sm text-red-600'> *</label></div>
-                                <select className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 selection:outline-indigo-500 font-Poppins font-light' {...register("contact")}>
-                                    <option value="EMAIL" className='font-Poppins font-light'>Email</option>
-                                    <option value="PHONE" className='font-Poppins font-light'>Phone</option>
-                                    <option value="BOTH" className='font-Poppins font-light'>Both</option>
+                                <select className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 selection:outline-indigo-500 font-Poppins font-light text-sm' {...register("contact")}>
+                                    <option value="EMAIL" className='font-Poppins font-light text-sm'>Email</option>
+                                    <option value="PHONE" className='font-Poppins font-light text-sm'>Phone</option>
+                                    <option value="BOTH" className='font-Poppins font-light text-sm'>Both</option>
                                 </select>
                             </div>
                         </div> 
@@ -89,11 +89,11 @@ const ClientList = () => {
                     </div>
                 </div>
             </form>
-            <div className='flex flex-col p-6 bg-white bg-opacity-90 my-6 rounded-xl shadow-md'>
+            <div className='flex flex-col h-full p-4 bg-white bg-opacity-90 my-6 rounded-xl shadow-md overflow-auto'>
                 <div className='flex flex-row justify-between'>
-                    <h1 className='font-Poppins font-semibold text-xl text-neutral-700'>Clients</h1>
+                    <h1 className='font-Poppins font-semibold text-base text-neutral-700'>Clients</h1>
                     <div className='flex flex-col'>    
-                        <label className='font-Poppins font-medium text-base text-neutral-600 pl-1'>Filter By</label>
+                        <label className='font-Poppins font-medium text-sm text-neutral-600 pl-1'>Filter By</label>
                         <select className='w-44 font-Poppins font-light text-sm rounded-md border-2 focus:outline-indigo-500 active:outline-indigo-500' onChange={(e) => setSortType(e.target.value)}>
                             <option value='firstname' className='font-Poppins font-light text-sm'>First Name</option>
                             <option value='lastname' className='font-Poppins font-light text-sm'>Last Name</option>
@@ -104,17 +104,17 @@ const ClientList = () => {
                     </div>
                 </div>
            
-                <div className='flex flex-row border-b-2 border-indigo-500 border-opacity-50 justify-between items-center pt-6'>
+                <div className='flex flex-row border-b-2 border-indigo-500 border-opacity-50 justify-between items-center pt-4'>
                     <div className='w-full px-4'></div>
-                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>First Name</h1>
-                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Last Name</h1>
-                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Date of Birth</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>First Name</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Last Name</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Date of Birth</h1>
                     {/* <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Preferred Contact</h1>
                     <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Email</h1>
                     <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Phone</h1> */}
                     <div className='w-full px-4'></div>
                 </div>
-                <div className='pt-3'>
+                <div className='pt-3 overflow-y-auto'>
                     {getClientJSON.map((client, index) => (
                         <ClientItem key={client.id} index={index} id={client.id} first={client.firstName} last={client.lastName} dob={client.dob} contact={client.contact} phone={client.phone} email={client.email} sort={sortType}/>
                     ))}

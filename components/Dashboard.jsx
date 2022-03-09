@@ -36,17 +36,17 @@ const Dashboard = () => {
     console.log(sortedList)
 
     return (
-        <div className='flex flex-col justify-between items-start w-full h-body'>
-            <div className='flex h-56 w-full'>
-                <h1 className='flex h-full'>Hello</h1>
+        <div className='flex flex-col justify-between items-start w-full h-body overflow-hidden'>
+            <div className='flex h-full w-full'>
+                <h1 className='flex h-56'>Hello</h1>
             </div>
 
-            <div className='flex flex-col w-full justify-between p-6 max-h-full'>
-                <div className='flex flex-col p-6 bg-white bg-opacity-90 my-6 rounded-xl shadow-md overflow-auto'>
-                    <h1 className='font-Poppins font-semibold text-xl text-neutral-700'>Recent Acitvity</h1>
-                    <div className='flex flex-row items-center justify-between pt-6 pb-3 mb-3 border-b-2 border-indigo-500 border-opacity-50'>
-                        <h1 className='font-Poppins px-2 font-medium text-base text-neutral-700'>Type</h1>
-                        <h1 className='font-Poppins px-2 font-medium text-base text-neutral-700'>Actioned Date</h1>
+            <div className='flex flex-col w-full justify-between p-6 h-activity'>
+                <div className='flex flex-col p-4 bg-white bg-opacity-90 rounded-xl shadow-md overflow-auto'>
+                    <h1 className='font-Poppins font-semibold text-base text-neutral-700'>Recent Acitvity</h1>
+                    <div className='flex flex-row items-center justify-between pt-4 pb-2 mb-2 border-b-2 border-indigo-500 border-opacity-50'>
+                        <h1 className='font-Poppins px-2 font-medium text-sm text-neutral-700'>Type</h1>
+                        <h1 className='font-Poppins px-2 font-medium text-sm text-neutral-700'>Actioned Date</h1>
                     </div>
                     <div className='overflow-y-auto'>
                         {sortedList.map((item, index) => (

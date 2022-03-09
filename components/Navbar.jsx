@@ -21,7 +21,7 @@ const Navbar = ({toggle}) => {
     
     return (
         <div>
-            <nav className='flex flex-row items-center justify-between w-navbar h-24 bg-transparent px-8'>
+            <nav className='flex flex-row items-center justify-between w-full h-24 bg-transparent px-8'>
                 <div className='flex flex-row'>
                     <h1 className='text-3xl font-extrabold font-Poppins text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-indigo-900 to-indigo-700'>Welcome, Kyle</h1><h1 className='pt-1 pl-2'>👋</h1>
                 </div>

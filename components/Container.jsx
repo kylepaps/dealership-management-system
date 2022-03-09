@@ -7,21 +7,21 @@ import Sidebar from './Sidebar'
 
 const Container = (props) => {
     const { children } = props
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
     const toggle = () => {
         setIsOpen(!isOpen)
     }
-    useEffect(() => {
-        const hideMenu = () => {
-            if (window.innerWidth > 768 && isOpen) {
-                setIsOpen(false)
-            }
-        }
-        window.addEventListener('resize', hideMenu)
-        return () => {
-            window.removeEventListener('resize', hideMenu)
-        }
-    })
+    // useEffect(() => {
+    //     const hideMenu = () => {
+    //         if (window.innerWidth > 768 && isOpen) {
+    //             setIsOpen(false)
+    //         }
+    //     }
+    //     window.addEventListener('resize', hideMenu)
+    //     return () => {
+    //         window.removeEventListener('resize', hideMenu)
+    //     }
+    // })
 
 
     return (
@@ -32,11 +32,12 @@ const Container = (props) => {
             </Head>
             
                 <div className='flex flex-row h-full'>
-                    <Sidebar toggle={toggle}/>
-                    <div className='flex flex-col h-full'>
+                    <Sidebar isOpen={isOpen} toggle={toggle}/>
+                    
+                    <div className={isOpen ? 'flex flex-col h-full w-full' : 'flex flex-col h-full w-closedsidebar'}>
                         <Navbar toggle={toggle}/>
-                        <Dropdown isOpen={isOpen} toggle={toggle}/>
-                        <main className='flex flex-row bg-transparent h-full'>
+                        {/* <Dropdown isOpen={isOpen} toggle={toggle}/> */}
+                        <main className={isOpen ? 'flex flex-row bg-transparent h-body overflow-auto' : 'flex flex-row bg-transparent h-body w-full overflow-auto'}>
                             {children}
                         </main>
                     </div>
