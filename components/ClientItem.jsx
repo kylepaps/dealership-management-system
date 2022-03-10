@@ -14,14 +14,17 @@ const ClientItem = ({id, index, first, last, dob, contact, phone, email, sort}) 
     const birth = dob.slice(0, 10)
     
     return (
-        <div className='flex flex-row justify-between py-2 hover:bg-indigo-100 rounded-md'>
-            <h1 className='w-full px-4 font-Poppins font-normal text-neutral-800'>{index + 1}</h1>
-            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{first}</h1>
-            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{last}</h1>
-            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{birth}</h1>
-            {/* <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{contact}</h1>
-            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{email}</h1>
-            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800'>{phone}</h1> */}
+        <div className='flex flex-row justify-between items-center py-2 hover:bg-indigo-100 rounded-md min-w-fit'>
+            <h1 className='flex w-full px-4 font-Poppins font-normal text-neutral-800'>{index + 1}</h1>
+            <div className='flex flex-row px-2 w-full items-center'>
+                <div className='flex flex-col w-full'>
+                    <h1 className='w-full font-Poppins font-semibold text-neutral-800 text-sm'>{first} {last}</h1>
+                    <h1 className='w-full font-Poppins font-normal text-neutral-800 text-xs'>{birth}</h1>    
+                </div>
+            </div>
+            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800 text-sm'>{email}</h1>
+            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800 text-sm'>{phone}</h1>
+            <h1 className='w-full px-2 font-Poppins font-normal text-neutral-800 text-sm'>{contact}</h1>
             <div className='w-full px-4 flex justify-end'>    
                 <button onClick={deleteClient}>
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

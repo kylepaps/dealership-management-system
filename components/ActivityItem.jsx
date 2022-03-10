@@ -8,7 +8,7 @@ const ActivityItem = ({id, index, date, firstName, lastName, email, make, model,
         return (
             <div className='flex flex-row justify-center py-2 hover:bg-indigo-100 rounded-md'>
                 <div className='w-full px-2 flex items-center'>
-                    <h1 className='font-Poppins text-sm font-semibold text-neutral-700 bg-red-500 bg-opacity-70 rounded-lg w-fit p-1'>Created Client</h1>
+                    <h1 className='font-Poppins text-sm font-semibold text-neutral-700 bg-indigo-400 bg-opacity-70 rounded-lg w-fit p-1'>Created Client</h1>
                 </div>
                 <div className='flex w-full justify-center'>
                     <div className='flex flex-col w-32 justify-start'>
@@ -25,7 +25,7 @@ const ActivityItem = ({id, index, date, firstName, lastName, email, make, model,
         return (
             <div className='flex flex-row justify-between py-2 hover:bg-indigo-100 rounded-md'>
                 <div className='w-full px-2 flex items-center'>
-                    <h1 className='font-Poppins text-sm font-semibold text-neutral-700 bg-orange-500 bg-opacity-70 rounded-lg w-fit p-1'>Created Vehicle</h1>
+                    <h1 className='font-Poppins text-sm font-semibold text-neutral-700 bg-orange-400 bg-opacity-70 rounded-lg w-fit p-1'>Created Vehicle</h1>
                 </div>
                 <div className='flex w-full justify-center'>
                     <div className='flex flex-col w-32 justify-start'>
@@ -42,7 +42,7 @@ const ActivityItem = ({id, index, date, firstName, lastName, email, make, model,
         return (
             <div className='flex flex-row justify-center py-2 hover:bg-indigo-100 rounded-md'>
                 <div className='w-full px-2 flex items-center'>
-                    <h1 className='font-Poppins text-sm font-semibold text-neutral-700 bg-green-500 bg-opacity-70 rounded-lg w-fit p-1'>Issued Vehicle</h1>
+                    <h1 className='font-Poppins text-sm font-semibold text-neutral-700 bg-green-400 bg-opacity-70 rounded-lg w-fit p-1'>Issued Vehicle</h1>
                 </div>
                 <div className='flex w-full justify-center'>
                     <div className='flex flex-col w-32 justify-start'>

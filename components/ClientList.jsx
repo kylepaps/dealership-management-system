@@ -106,9 +106,10 @@ const ClientList = () => {
            
                 <div className='flex flex-row border-b-2 border-indigo-500 border-opacity-50 justify-between items-center pt-4'>
                     <div className='w-full px-4'></div>
-                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>First Name</h1>
-                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Last Name</h1>
-                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Date of Birth</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Name / DOB</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Email</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Phone</h1>
+                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Preferred Contact</h1>
                     {/* <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Preferred Contact</h1>
                     <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Email</h1>
                     <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Phone</h1> */}

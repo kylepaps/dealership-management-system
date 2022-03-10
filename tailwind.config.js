@@ -15,7 +15,7 @@ module.exports = {
       },
       height: {
         body: 'calc(100vh - 96px)',
-        activity: 'calc(100% - 224px)'
+        activity: 'calc(100% - 256px)'
       }
     },
     fontFamily: {
