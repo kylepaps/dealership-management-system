@@ -18,16 +18,23 @@ const Sidebar = ({isOpen, toggle}) => {
             <div className={isOpen ? '' : 'hidden'}>
             <nav className='flex flex-col items-center bg-neutral-200 h-full min-h-screen w-56'>
             
-                <div className='items-center justify-center h-24 w-full px-6'>
-                    <div className='flex flex-row justify-center'>
-                        <h1 className='pr-1 pt-1 font-Poppins font-bold text-2xl text-indigo-900'>K-Auto</h1>                     
-                        {/* <Image src={logo} alt='logo' width={30} height={25}/>  */}
-                    </div>
-                    <button className='items-end flex' onClick={toggle}>
-                        <svg className="w-6 h-6 hover:text-gray-700 items-end flex" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <div className='flex flex-col justify-center h-24 w-full px-5'>
+                    <div className='flex flex-row justify-between h-full border-b-2 border-indigo-400'>     
+                        <div className='flex items-center bg-indigo-700 p-6 my-4 rounded-lg'>
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
                         </svg>
-                    </button>
+                        <div className='pl-2'>
+                            <h1 className='font-Poppins font-medium text-xl text-white'>K-Auto</h1>
+                            <h1 className='font-Poppins font-light text-sm text-white'>CRM</h1>
+                        </div>
+                        </div>   
+                        <div className='items-center flex'>             
+                        <button onClick={toggle}>
+                            <svg className="w-6 h-6 hover:text-indigo-400 text-indigo-900 items-end flex" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
+                            </svg>
+                        </button>
+                        </div>    
+                    </div>
                     
                 </div>
                 <div className='flex flex-col items-center py-12 w-full h-80 justify-between'>
