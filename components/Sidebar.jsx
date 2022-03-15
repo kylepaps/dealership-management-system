@@ -8,10 +8,10 @@ import { useTheme } from 'next-themes'
 
 const Sidebar = ({isOpen, toggle}) => {
     const router = useRouter();
-    const { theme, setTheme } = useTheme()
-    const [mounted, setMounted] = useState(false)
+    // const { theme, setTheme } = useTheme()
+    // const [mounted, setMounted] = useState(true)
     
-    useEffect(() => setMounted(true), [])
+    // useEffect(() => setMounted(true), [])
 
     return (
         <div >
@@ -20,8 +20,8 @@ const Sidebar = ({isOpen, toggle}) => {
             
                 <div className='items-center justify-center h-24 w-full px-6'>
                     <div className='flex flex-row justify-center'>
-                        <h1 className='pr-1 pt-1 font-Lobster text-2xl text-indigo-900'>K-Auto</h1>                     
-                        <Image src={logo} alt='logo' width={30} height={25}/> 
+                        <h1 className='pr-1 pt-1 font-Poppins font-bold text-2xl text-indigo-900'>K-Auto</h1>                     
+                        {/* <Image src={logo} alt='logo' width={30} height={25}/>  */}
                     </div>
                     <button className='items-end flex' onClick={toggle}>
                         <svg className="w-6 h-6 hover:text-gray-700 items-end flex" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
