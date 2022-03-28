@@ -1,14 +1,23 @@
 import React from 'react';
 import { useSWRConfig } from 'swr';
+import { useSession } from "next-auth/react"
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ClientItem = ({id, index, first, last, dob, contact, phone, email, sort}) => {
     const { mutate } = useSWRConfig()
+    const { data: session } = useSession()
+
     const deleteClient = async (e) => {
-        e.preventDefault()
-        const res = await fetch(`/api/clients/${id}`, {
-          method: 'DELETE'
-        })
-        mutate(`/api/clients/filter/${sort}`)
+        if (session?.user) {
+            e.preventDefault()
+            const res = await fetch(`/api/clients/${id}`, {
+              method: 'DELETE'
+            })
+            mutate(`/api/clients/filter/${sort}`)
+        } else {
+            toast("Sign in to make changes");
+        }
     }
 
     const birth = dob.slice(0, 10)

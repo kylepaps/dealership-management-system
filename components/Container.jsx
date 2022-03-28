@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import Navbar from './Navbar'
-import Dropdown from './Dropdown'
 import Sidebar from './Sidebar'
 
 
@@ -11,17 +10,6 @@ const Container = (props) => {
     const toggle = () => {
         setIsOpen(!isOpen)
     }
-    // useEffect(() => {
-    //     const hideMenu = () => {
-    //         if (window.innerWidth > 768 && isOpen) {
-    //             setIsOpen(false)
-    //         }
-    //     }
-    //     window.addEventListener('resize', hideMenu)
-    //     return () => {
-    //         window.removeEventListener('resize', hideMenu)
-    //     }
-    // })
 
 
     return (
@@ -36,7 +24,6 @@ const Container = (props) => {
                     
                     <div className={isOpen ? 'flex flex-col h-full w-full' : 'flex flex-col h-full w-closedsidebar'}>
                         <Navbar toggle={toggle}/>
-                        {/* <Dropdown isOpen={isOpen} toggle={toggle}/> */}
                         <main className={isOpen ? 'flex flex-row bg-transparent h-body overflow-auto' : 'flex flex-row bg-transparent h-body w-full overflow-auto'}>
                             {children}
                         </main>

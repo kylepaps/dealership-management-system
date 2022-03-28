@@ -2,6 +2,9 @@ import React from 'react'
 
 const IssueItem = ({index, clientId, vehicleId, firstName, lastName, email, model, make, year, price, date}) => {
   const issueDate = date.slice(0, 10)
+  
+  
+  
   return (
     <div className='flex flex-row justify-start items-center py-2 hover:bg-indigo-100 rounded-md'>
       <div className='flex flex-row w-full space-x-6 px-4 items-center'>

@@ -1,15 +1,24 @@
 import React from 'react'
-import { useSWRConfig } from 'swr';
-import Link from 'next/link'
+import { useSWRConfig } from 'swr'
+import { useSession } from "next-auth/react"
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const VehicleItem = ({id, index, make, model, type, year, price, sort}) => {
     const { mutate } = useSWRConfig()
+    const { data: session } = useSession()
+
     const deleteVehicle = async (e) => {
-        e.preventDefault()
-        const res = await fetch(`/api/vehicles/${id}`, {
-          method: 'DELETE'
-        })
-        mutate(`/api/vehicles/filter/${sort}`)
+        
+        if (session?.user) {
+            e.preventDefault()
+            const res = await fetch(`/api/vehicles/${id}`, {
+                method: 'DELETE'
+            })
+            mutate(`/api/vehicles/filter/${sort}`)
+        } else {
+            toast("Sign in to make changes")
+        }
     }
 
     return (

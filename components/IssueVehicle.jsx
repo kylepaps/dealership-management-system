@@ -1,24 +1,20 @@
-import React, { useState } from 'react';
-import useSWR, { useSWRConfig } from 'swr';
+import React, { useState } from 'react'
+import useSWR, { useSWRConfig } from 'swr'
 import fetcher from '../lib/fetcher'
-import { useForm } from 'react-hook-form';
-import IssueItem from './IssueItem';
+import { useForm } from 'react-hook-form'
+import IssueItem from './IssueItem'
+import { useSession } from "next-auth/react"
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const IssueVehicle = () => {
     const { mutate } = useSWRConfig()
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    // const { data: vehicleData } = useSWR(`/api/vehicles`, fetcher)
-    // const { data: clientData } = useSWR(`/api/clients`, fetcher)
+    const { register, formState: { errors }, handleSubmit } = useForm()
     const { data: issuedData } = useSWR(`/api/vehicles/issued`, fetcher)
     const { data: unissuedVehicleData } = useSWR(`/api/vehicles/unissued`, fetcher)
     const { data: unissuedClientData } = useSWR(`/api/clients/unissued`, fetcher)
+    const { data: session } = useSession()
     
-    // if (!vehicleData) {
-    //     return <h1>loading...</h1>
-    // }
-    // if (!clientData) {
-    //     return <h1>loading...</h1>
-    // }
     if (!issuedData) {
         return <h1>loading...</h1>
     }
@@ -28,36 +24,37 @@ const IssueVehicle = () => {
     if (!unissuedClientData) {
         return <h1>loading...</h1>
     }
-    
-    // const getVehicleString = JSON.stringify(vehicleData.cars)
-    // const getVehicleJSON = JSON.parse(getVehicleString)
-    // const getClientString = JSON.stringify(clientData.clients)
-    // const getClientJSON = JSON.parse(getClientString)
+
     const getIssuedString = JSON.stringify(issuedData.issued)
     const getIssuedJSON = JSON.parse(getIssuedString)
     const getUnissuedVehicles = JSON.stringify(unissuedVehicleData.cars)
     const unissuedVehicleJSON = JSON.parse(getUnissuedVehicles)
     const getUnissuedClients = JSON.stringify(unissuedClientData.clients)
     const unissuedClientJSON = JSON.parse(getUnissuedClients)
-    console.log(getIssuedJSON)
     
 
     const onSubmit = async (data) => {
-        const res = await fetch('/api/vehicles/issued/create', {
-          body: JSON.stringify({
-              carId: data.vehicleId,
-              clientId: data.clientId
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          method: 'POST'
-        })
-        mutate(`/api/vehicles/issued`)
+        if (session?.user) {
+            const res = await fetch('/api/vehicles/issued/create', {
+                body: JSON.stringify({
+                    carId: data.vehicleId,
+                    clientId: data.clientId
+                }),
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                method: 'POST'
+            })
+            mutate(`/api/vehicles/issued`)
+        } else {
+            toast("Sign in to make changes")
+        }
+        
     };
 
     return (
         <div className='flex flex-col w-full justify-between p-4'>
+            <ToastContainer/>
             <form className='bg-white bg-opacity-90 rounded-xl p-2 shadow-md w-full' onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex flex-col'>
                     <h1 className='p-4 font-Poppins font-semibold text-base text-neutral-700'>Issue Vehicle</h1>
@@ -91,13 +88,10 @@ const IssueVehicle = () => {
                 <h1 className='font-Poppins font-semibold text-base text-neutral-700'>Issued</h1>
               </div>
               <div className='flex flex-row border-b-2 border-indigo-500 border-opacity-50 justify-start items-center pt-4'>
-                {/* <div className='w-full px-4'></div> */}
                 <h1 className='w-full px-4 justify-start flex font-Poppins font-medium text-neutral-800 text-sm'>Client</h1>
-                {/* <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Client Name</h1> */}
                 <h1 className='w-full px-4 justify-start flex font-Poppins font-medium text-neutral-800 text-sm'>Vehicle</h1>
                 <h1 className='w-full px-4 justify-center flex font-Poppins font-medium text-neutral-800 text-sm'>Date Issued</h1>
                 <h1 className='w-full px-4 justify-center flex font-Poppins font-medium text-neutral-800 text-sm'>Price Per Day</h1>
-                {/* <div className='w-full px-4'></div> */}
             </div> 
                 <div className='pt-3'>
                     {getIssuedJSON.map((issue, index) => (

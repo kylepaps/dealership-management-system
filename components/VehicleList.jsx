@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import useSWR, { useSWRConfig } from 'swr';
+import React, { useState, useEffect } from 'react'
+import useSWR, { useSWRConfig } from 'swr'
 import fetcher from '../lib/fetcher'
 import VehicleItem from './VehicleItem'
-import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form'
+import { useSession } from "next-auth/react"
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const VehicleList = () => {
     const { mutate } = useSWRConfig()
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm()
     const [sortType, setSortType] = useState()
     const { data: vehicleData } = useSWR(`/api/vehicles/filter/${sortType}`, fetcher)
+    const { data: session } = useSession()
 
     useEffect(() => {
         const sortArray = type => {
@@ -26,26 +30,32 @@ const VehicleList = () => {
     const getVehicleJSON = JSON.parse(getVehicleString)
     
     const onSubmit = async (data) => {
-        const res = await fetch('/api/vehicles/create', {
-          body: JSON.stringify({
-            car: {
-              make: data.make,
-              model: data.model,
-              type: data.type,
-              year: data.year,
-              price: data.price
-            }
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          method: 'POST'
-        })
-        mutate(`/api/vehicles/filter/${sortType}`)
+        if (session?.user) {
+          const res = await fetch('/api/vehicles/create', {
+            body: JSON.stringify({
+              car: {
+                make: data.make,
+                model: data.model,
+                type: data.type,
+                year: data.year,
+                price: data.price
+              }
+            }),
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            method: 'POST'
+          })
+          mutate(`/api/vehicles/filter/${sortType}`)
+        } else {
+          toast("Sign in to make changes");
+        }
+        
     };
 
     return (
         <div className='flex flex-col w-full h-full justify-between p-4'>
+            <ToastContainer/>
             <form className='bg-white bg-opacity-90 rounded-xl shadow-md w-full' onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex flex-col'>
                   <h1 className='p-4 font-Poppins font-semibold text-base text-neutral-700'>Create Vehicle</h1>

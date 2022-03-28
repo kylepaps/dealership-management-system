@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import useSWR, { useSWRConfig } from 'swr';
+import React, { useState, useEffect } from 'react'
+import useSWR, { useSWRConfig } from 'swr'
 import fetcher from '../lib/fetcher'
 import ClientItem from './ClientItem'
-import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form'
+import { useSession } from "next-auth/react"
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 const ClientList = () => {
     const { mutate } = useSWRConfig()
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm()
     const [sortType, setSortType] = useState()
     const { data: clientData } = useSWR(`/api/clients/filter/${sortType}`, fetcher)
+    const { data: session } = useSession()
+
     useEffect(() => {
         const sortArray = type => {
           setSortType(type)
@@ -24,31 +29,35 @@ const ClientList = () => {
     
     const getClientString = JSON.stringify(clientData.clients)
     const getClientJSON = JSON.parse(getClientString)
-    // setClientList(getClientJSON)
 
     
     const onSubmit = async (data) => {
-        const res = await fetch('/api/clients/create', {
-          body: JSON.stringify({
-            clients: {
-              firstName: data.firstName,
-              lastName: data.lastName,
-              dob: data.dob,
-              contact: data.contact,
-              phone: data.phone,
-              email: data.email
-            }
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          method: 'POST'
-        })
-        mutate(`/api/clients/filter/${sortType}`)
+        if (session?.user) {
+            const res = await fetch('/api/clients/create', {
+                body: JSON.stringify({
+                  clients: {
+                    firstName: data.firstName,
+                    lastName: data.lastName,
+                    dob: data.dob,
+                    contact: data.contact,
+                    phone: data.phone,
+                    email: data.email
+                  }
+                }),
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                method: 'POST'
+            })
+            mutate(`/api/clients/filter/${sortType}`)
+        } else {
+            toast("Sign in to make changes")
+        }
     };
 
     return (
         <div className='flex flex-col w-full justify-between p-4'>
+            <ToastContainer/>
             <form className=' bg-white bg-opacity-90 rounded-xl shadow-md w-full min-h-fit' onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex flex-col'>
                     <h1 className='p-4 font-Poppins font-semibold text-base text-neutral-700'>Create Client</h1>
@@ -110,9 +119,6 @@ const ClientList = () => {
                     <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Email</h1>
                     <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Phone</h1>
                     <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800 text-sm'>Preferred Contact</h1>
-                    {/* <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Preferred Contact</h1>
-                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Email</h1>
-                    <h1 className='w-full px-2 font-Poppins font-medium text-neutral-800'>Phone</h1> */}
                     <div className='w-full px-4'></div>
                 </div>
                 <div className='pt-3'>

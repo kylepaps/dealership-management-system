@@ -1,6 +1,5 @@
 import React from 'react'
-import { useSWRConfig } from 'swr';
-import Link from 'next/link'
+
 
 const ActivityItem = ({id, index, date, firstName, lastName, email, make, model, year, issuedMake, issuedModel, issuedYear}) => {
     const actionedDate = date.slice(0, 10)

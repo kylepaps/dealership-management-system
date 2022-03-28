@@ -31,7 +31,6 @@ const Dashboard = () => {
     const getUnissuedString = JSON.stringify(unissuedData.cars)
     const getUnissuedJSON = JSON.parse(getUnissuedString)
 
-    // const activityList = Object.assign({}, getClientJSON, getIssuedJSON, getVehicleJSON)
     const activityList = getVehicleJSON.concat(getClientJSON, getIssuedJSON)
 
     function dateSort(a, b) {

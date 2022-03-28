@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
-import logo from '../public/logo.png'
-import { useTheme } from 'next-themes'
 
 
 const Sidebar = ({isOpen, toggle}) => {
-    const router = useRouter();
-    // const { theme, setTheme } = useTheme()
-    // const [mounted, setMounted] = useState(true)
-    
-    // useEffect(() => setMounted(true), [])
+    const router = useRouter()
+
 
     return (
         <div >
