@@ -4,10 +4,10 @@ export default async function handler(req, res) {
     try {
         const issued = await prisma.issued.findMany({
             orderBy: {
-                createdAt: 'desc',
+                updatedAt: 'desc',
             },
             where: {
-                returned: false
+                returned: true
             },
             include: {
                 car: true,

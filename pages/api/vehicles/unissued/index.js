@@ -4,8 +4,18 @@ export default async function handler(req, res) {
     try {
         const cars = await prisma.car.findMany({
             where: {
-                issued: null
-            }
+                OR: [
+                    {issued: {
+                        is: {
+                            returned: true
+                        }
+                    }},
+                    {issued: null}
+                ]
+            },
+            include: {
+                issued: true
+            },
         })
         res.status(201)
         res.json({ cars })

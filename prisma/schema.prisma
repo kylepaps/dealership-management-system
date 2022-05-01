@@ -40,14 +40,6 @@ model Issued {
   client Client @relation(fields: [clientId], references: [id])
   clientId Int
   returned Boolean @default(false)
-  returnedId Returned?
-}
-
-model Returned {
-  id Int @default(autoincrement()) @id
-  createdAt DateTime @default(now())
-  issued Issued @relation(fields: [issuedId], references: [id])
-  issuedId Int
 }
 
 enum Contact {

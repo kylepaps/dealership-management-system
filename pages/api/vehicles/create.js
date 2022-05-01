@@ -17,7 +17,6 @@ export default async function handler(req, res) {
         res.status(201)
         res.json({ cars })
     } catch (error) {
-        console.log(error)
         res.status(500)
         res.json({error: "sorry unable to save vehicle to database"})
     }

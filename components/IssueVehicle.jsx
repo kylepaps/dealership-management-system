@@ -83,7 +83,7 @@ const IssueVehicle = () => {
                     </div>
                 </div>
             </form>
-            <div className='flex flex-col h-full p-4 bg-white bg-opacity-90 my-6 rounded-xl shadow-md'>
+            <div className='flex flex-col h-fit p-4 bg-white bg-opacity-90 my-6 rounded-xl shadow-md'>
               <div className='flex flex-row justify-between'>
                 <h1 className='font-Poppins font-semibold text-base text-neutral-700'>Issued</h1>
               </div>
@@ -92,10 +92,11 @@ const IssueVehicle = () => {
                 <h1 className='w-full px-4 justify-start flex font-Poppins font-medium text-neutral-800 text-sm'>Vehicle</h1>
                 <h1 className='w-full px-4 justify-center flex font-Poppins font-medium text-neutral-800 text-sm'>Date Issued</h1>
                 <h1 className='w-full px-4 justify-center flex font-Poppins font-medium text-neutral-800 text-sm'>Price Per Day</h1>
+                <h1 className='w-full px-4 justify-end flex font-Poppins font-medium text-neutral-800 text-sm'>Return Vehicle</h1>
             </div> 
                 <div className='pt-3'>
                     {getIssuedJSON.map((issue, index) => (
-                        <IssueItem index={index} key={issue.id} clientId={issue.clientId} vehicleId={issue.carId} firstName={issue.client.firstName} lastName={issue.client.lastName} email={issue.client.email} model={issue.car.model} make={issue.car.make} year={issue.car.year} price={issue.car.price} date={issue.createdAt}/>
+                        <IssueItem key={issue.id} index={index} issuedId={issue.id} clientId={issue.clientId} vehicleId={issue.carId} firstName={issue.client.firstName} lastName={issue.client.lastName} email={issue.client.email} model={issue.car.model} make={issue.car.make} year={issue.car.year} price={issue.car.price} date={issue.createdAt}/>
                     ))}
                 </div>
             </div>

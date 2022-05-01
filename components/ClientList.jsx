@@ -98,7 +98,7 @@ const ClientList = () => {
                     </div>
                 </div>
             </form>
-            <div className='flex flex-col h-full p-4 bg-white bg-opacity-90 my-4 rounded-xl shadow-md'>
+            <div className='flex flex-col h-fit p-4 bg-white bg-opacity-90 my-4 rounded-xl shadow-md'>
                 <div className='flex flex-row justify-between'>
                     <h1 className='font-Poppins font-semibold text-base text-neutral-700'>Clients</h1>
                     <div className='flex flex-col'>    
