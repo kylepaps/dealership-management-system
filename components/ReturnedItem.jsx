@@ -44,7 +44,7 @@ const ReturnedItem = ({id, index, clientId, vehicleId, firstName, lastName, emai
             <div className='flex flex-col w-full'>
               <div className='flex flex-row pb-2 w-52'>
                 <h1 className='font-Poppins font-semibold text-neutral-800 text-sm pr-1'>{issueString}</h1>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 <h1 className='font-Poppins font-semibold text-neutral-800 text-sm pl-1'>{returnString}</h1>
               </div>
               <h1 className='text-xs font-Poppins font-normal text-neutral-800'>{totalDays} days</h1>

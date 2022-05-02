@@ -64,7 +64,7 @@ const IssueVehicle = () => {
                             <select className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 selection:outline-indigo-500 font-Poppins font-light text-sm' {...register("vehicleId")}>
                                 <option value="">--Please choose an option--</option>
                                 {unissuedVehicleJSON.map((vehicle) => (
-                                    <option value={vehicle.id} className='font-Poppins font-light'>ID:{vehicle.id} {vehicle.make} {vehicle.model} {vehicle.year}</option>
+                                    <option key={vehicle.id} value={vehicle.id} className='font-Poppins font-light'>ID:{vehicle.id} {vehicle.make} {vehicle.model} {vehicle.year}</option>
                                 ))}
                             </select>
                         </div>
@@ -73,7 +73,7 @@ const IssueVehicle = () => {
                             <select className='rounded-md border-2 border-neutral-300 outline-neutral-500 p-1 focus:outline-indigo-500 selection:outline-indigo-500 font-Poppins font-light text-sm' {...register("clientId")}>
                                 <option value="">--Please choose an option--</option>
                                 {unissuedClientJSON.map((client) => (
-                                    <option value={client.id}>ID:{client.id} {client.firstName} {client.lastName} {client.email}</option>
+                                    <option key={client.id} value={client.id}>ID:{client.id} {client.firstName} {client.lastName} {client.email}</option>
                                 ))}
                             </select>
                         </div>

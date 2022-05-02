@@ -32,7 +32,7 @@ const ReturnedVehicle = () => {
                         </div>
                         <div className='w-full px-4 justify-start flex'>
                             <h1 className='font-Poppins font-medium text-neutral-800 text-sm pr-1'>Issued</h1>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             <h1 className='font-Poppins font-medium text-neutral-800 text-sm pl-1'>Returned</h1>
                         </div>
                         <div className='w-full px-4 justify-center flex'>

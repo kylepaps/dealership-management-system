@@ -13,6 +13,7 @@ const Container = (props) => {
 
 
     return (
+        
         <div className='bg-neutral-100 dark:bg-neutral-900 min-h-screen' >
             <Head>
                 <title>Kyle's Auto</title>

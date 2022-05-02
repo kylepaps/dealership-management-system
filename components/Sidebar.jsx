@@ -59,7 +59,7 @@ const Sidebar = ({isOpen, toggle}) => {
                     <Link href='/returned'>
                         <a className={router.pathname === '/returned' ? 'flex flex-row w-full px-12 justify-start items-center space-x-2 border-r-4 border-indigo-700 h-full': 'flex flex-row w-full px-12 justify-start items-center space-x-2 border-r-4 border-transparent h-full'}>
                             <svg className={router.pathname === '/returned' ? 'w-5 h-5 text-indigo-700' : 'w-5 h-5'} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
                             </svg>
                             <h1 className={router.pathname === '/returned' ? 'font-Poppins font-semibold text-indigo-700': 'font-Poppins font-semibold'}>Returned</h1>
                         </a>
@@ -108,7 +108,7 @@ const Sidebar = ({isOpen, toggle}) => {
                     <Link href='/returned'>
                         <a className={router.pathname === '/returned' ? 'flex flex-row w-full justify-center items-center space-x-2 border-r-2 border-indigo-700 h-full': 'flex flex-row w-full justify-center items-center space-x-2 border-r-2 border-transparent h-full'}>
                             <svg className={router.pathname === '/returned' ? 'w-5 h-5 text-indigo-700' : 'w-5 h-5'} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
                             </svg>
                         </a>
                     </Link>
